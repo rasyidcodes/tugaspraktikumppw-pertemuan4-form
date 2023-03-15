@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <title>Liverpool FC</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        body{
+            background: #DC0714;
+        }
+        .xx{
+            padding: 20px;
+        }
+        .div-1{
+            margin-top: 60px;
+            margin-bottom: 60px;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background: white;
+            width: 700px;
+            height: auto;
+        }
+      
+        .text-head{
+            margin-top: 30px;
+            font-size: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        .button-1 {
+            width: 100%;
+        background-color: #2cbc63;
+        border-radius: 8px;
+        border-style: none;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        height: 40px;
+        line-height: 20px;
+        list-style: none;
+        margin: 0;
+        outline: none;
+        padding: 10px 16px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: color 100ms;
+        vertical-align: baseline;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        }
+
+        .button-1:hover,
+        .button-1:focus {
+        background-color: green;
+        }
+
+        .img-head{
+            object-fit: cover;
+            border-radius: 20px;
+            width: 100%;
+            height: 200px;
+        }
+        .fieldset{
+            border: 0;
+            padding-left: 0;
+            margin: 0;
+        }
+        .fieldset2{
+            border: 0;
+            padding-right: 0;
+            padding-left: 0;
+            margin-top: 30px;
+            
+        }
+        .grid-2{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 40px;
+        }
+        .sub-head{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 200;
+            padding: 0;
+            margin: 0;
+        }
+       .form-input{
+        margin-top: 0;
+                    width: 100%;
+                    height: 36px;
+                    border-radius: 4px;
+                    padding-left: 12px;
+                    font-size: 14px;
+                    font-weight: normal;
+                    border: 1px solid rgb(137, 151, 155);
+                    transition: border-color 150ms ease-in-out 0s;
+                    outline: none;
+                    color: rgb(33, 49, 60);
+                    background-color: rgb(255, 255, 255);                 
+       }
+       .margin-head{
+        margin-top: 20px;
+       }
+
+       .btn-submit{
+        width: 100%;
+        height: 36px;
+        margin-top: 20px;
+       }
+       .form-container {
+            width: 100vw;
+            height: 100vh;
+            background-color: #7b2cbf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .upload-files-container {
+            margin-top: 30px;
+            width: 100%;
+        
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        
+        }
+    .drag-file-area {
+        font-family: 'Poppins';
+        border: 2px dashed #DC0714;
+        border-radius: 40px;
+        margin: 10px 0 15px;
+        padding: 30px 50px;
+        width: 350px;
+        text-align: center;
+    }
+    .drag-file-area .upload-icon {
+        font-size: 50px;
+    }
+    .drag-file-area h3 {
+        font-size: 15px;
+        margin: 15px 0;
+    }
+    .drag-file-area label {
+        font-size: 19px;
+    }
+    .drag-file-area label .browse-files-text {
+        color: #DC0714;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+    .browse-files span {
+        position: relative;
+        top: -25px;
+    }
+    .default-file-input {
+        opacity: 0;
+    }
+    .cannot-upload-message {
+        background-color: #ffc6c4;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        padding: 5px 10px 5px 30px;
+        border-radius: 5px;
+        color: #BB0000;
+        display: none;
+    }
+    @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+    }
+    .cannot-upload-message span, .upload-button-icon {
+        padding-right: 10px;
+    }
+    .cannot-upload-message span:last-child {
+        padding-left: 20px;
+        cursor: pointer;
+    }
+    .file-block {
+        color: #f7fff7;
+        background-color: #7b2cbf;
+        transition: all 1s;
+        width: 390px;
+        position: relative;
+        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0 15px;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+    .file-info {
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+    }
+    .file-icon {
+        margin-right: 10px;
+    }
+    .file-name, .file-size {
+        padding: 0 3px;
+    }
+    .remove-file-icon {
+        cursor: pointer;
+    }
+    .progress-bar {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 4.5%;
+        width: 0;
+        height: 5px;
+        border-radius: 25px;
+        background-color: #4BB543;
+    }
+    .choose-type{
+        font-weight: 400;
+    }
+    .upload-button {
+        font-family: 'Montserrat';
+        background-color: #7b2cbf;
+        color: #f7fff7;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        border: none;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 7.5px 50px;
+        cursor: pointer;
+    }
+       .block-password{
+            width: 100%;
+            height: auto;
+            background: #F5F5F5;
+       }
+       .block-password-text{
+         padding: 10px 10px 10px 10px;
+         font-family: 'Poppins', sans-serif;
+            font-weight: 200;
+            font-size: 10px;
+       }
+
+       .form-input::hover{
+                        box-shadow: rgb(231 238 236) 0px 0px 0px 3px;
+        }
+        .checkbox-wrapper-24{
+            margin-top: 6px;
+            font-family: 'Poppins';
+        }
+    </style>
+</head>
+<body>
+    <div class="div-1">
+        <div class="xx">
+            <img src="thisisanflied.jpg" class="img-head"/>
+            <p class="text-head">Anfield Stadium Tour</p>
+            <form action="@" method="POST">
+                <fieldset class="fieldset">  
+                    <div>
+                        <div class="grid-2">      
+                                <div>
+                                    <p class="sub-head">Firstname</p>
+                                    <input class="form-input" type="text" name="firstname"/>
+                                </div>
+                                <div>
+                                    <p class="sub-head">Surename</p>
+                                    <input class="form-input" type="text" name="firstname"/>
+                                </div> 
+                        </div>
+                        <div class="grid-2 margin-head">
+                                <div>
+                                    <p class="sub-head">E-mail</p>
+                                    <input class="form-input" type="email" name="firstname"/>
+                                </div>
+                                <div>
+                                    <p class="sub-head">Date of Birth</p>
+                                    <input class="form-input" type="date" name="firstname"/>
+                                </div> 
+                        </div>
+                        <div class="grid-2 margin-head">                                
+                            <div>
+                                <p class="sub-head">Password</p>
+                                <input class="form-input" type="password" name="password"/>
+                            </div>
+                            <div>
+                                <p class="sub-head">Re-enter password</p>
+                                <input class="form-input" type="password" name="re-enter password"/>
+                            </div> 
+                        </div>
+                    </div>   
+                </fieldset>
+                <div class="block-password">
+                    <div class="block-password-text">
+                    <b>For your security please ensure your password:</b>
+                    <p>Is between 8 and 30 characters long
+                    <br>Contains a mix of upper (capital) and lower case letters
+                    <br>Contains at least one number <br>
+                    Contains at least one special character (* : @ | # % , . ; [ ] { } ? - _ ~ $ & < > ‘ “ ^ ( ) / ! `)</p>
+                    </div>   
+                </div>
+                <fieldset class="fieldset2">
+                    <div>
+                        <div class="grid-2">
+                            <div>
+                                <p class="sub-head">Gender</p>
+                                <select class="form-input" name="gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p class="sub-head">Country</p>
+                                <select class="form-input" name="country">
+                                    <option value="Indonesia">Indonesia</option>
+                                    <option value="England">England</option>
+                                    <option value="France">France</option>
+                                    <option value="Greece">Greece</option>
+                                </select>
+                            </div> 
+                        </div>
+                    </div> 
+                    <div>
+                        <p class="sub-head choose-type margin-head">Choose Tour Type</p>
+                        <div class="checkbox-wrapper-24">
+                            <input type="checkbox" id="check-24" name="check" value="" />
+                            <label for="check-24">
+                              <span><!-- This span is needed to create the "checkbox" element --></span>Gold
+                            </label>
+
+                            <input type="checkbox" id="check-24" name="check" value="" />
+                            <label for="check-24">
+                              <span><!-- This span is needed to create the "checkbox" element --></span>Silver
+                            </label>
+                            <input type="checkbox" id="check-24" name="check" value="" />
+                            <label for="check-24">
+                              <span><!-- This span is needed to create the "checkbox" element --></span>Bronze
+                            </label>
+                          </div>
+                    </div>
+                    <div>
+                        <p class="sub-head margin-head">Choose Image</p>
+                    </div>
+                    <form class="form-container" enctype='multipart/form-data'>
+                        <div class="upload-files-container">
+                            <div class="drag-file-area">
+                                <span class="material-icons-outlined upload-icon"> file_upload </span>
+                                <h3 class="dynamic-message"> Drag & drop any file here </h3>
+                                <label class="label"> or <span class="browse-files"> <input type="file" class="default-file-input"/> <span class="browse-files-text">browse file</span> <span>from device</span> </span> </label>
+                            </div>
+                            <span class="cannot-upload-message"> <span class="material-icons-outlined">error</span> Please select a file first <span class="material-icons-outlined cancel-alert-button">cancel</span> </span>
+                            <div class="file-block">
+                                <div class="file-info"> <span class="material-icons-outlined file-icon">description</span> <span class="file-name"> </span> | <span class="file-size">  </span> </div>
+                                <span class="material-icons remove-file-icon">delete</span>
+                                <div class="progress-bar"> </div>
+                            </div>
+                        </div>
+                    </form>
+                </fieldset>
+                <button class="button-1" role="button">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
